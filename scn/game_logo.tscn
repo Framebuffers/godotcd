@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bve1y8gj2cy36"]
+
+[ext_resource type="Texture2D" uid="uid://vjfjs838kg8f" path="res://assets/tt/tt_logo.svg" id="1_b03ox"]
+
+[node name="Logo" type="Sprite3D"]
+texture = ExtResource("1_b03ox")
