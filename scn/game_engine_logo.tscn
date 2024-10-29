@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://botmxrxu1y2q5"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xmqvm"]
+size = Vector2(250, 30)
+
+[node name="GameEngineLogo" type="Sprite3D"]
+texture = SubResource("PlaceholderTexture2D_xmqvm")

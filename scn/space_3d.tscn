@@ -1,5 +1,78 @@
-[gd_scene format=3 uid="uid://b1g43g3vh8r7n"]
+[gd_scene load_steps=12 format=3 uid="uid://b1g43g3vh8r7n"]
+
+[ext_resource type="Shader" path="res://assets/shader/psx_camera_shader.gdshader" id="1_urwow"]
+[ext_resource type="PackedScene" uid="uid://berwqny7rh176" path="res://scn/godot_logo.tscn" id="2_ckb7i"]
+[ext_resource type="Script" path="res://src/Objects.cs" id="2_q3kx3"]
+[ext_resource type="PackedScene" uid="uid://botmxrxu1y2q5" path="res://scn/game_engine_logo.tscn" id="3_g55l1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_if261"]
+sky_top_color = Color(0.149789, 0.000133852, 0.219886, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_curve = 0.470751
+ground_bottom_color = Color(8.12206e-08, 0.0967426, 0.149157, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+ground_curve = 0.20393
+
+[sub_resource type="Sky" id="Sky_2pb01"]
+sky_material = SubResource("ProceduralSkyMaterial_if261")
+
+[sub_resource type="Environment" id="Environment_4g6ja"]
+sky = SubResource("Sky_2pb01")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nf1fb"]
+render_priority = 0
+shader = ExtResource("1_urwow")
+shader_parameter/enable_fog = true
+shader_parameter/fog_color = null
+shader_parameter/noise_color = null
+shader_parameter/fog_distance = 100.0
+shader_parameter/fog_fade_range = 50.0
+shader_parameter/enable_noise = true
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 32
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.3
+
+[sub_resource type="QuadMesh" id="QuadMesh_mjgiq"]
+material = SubResource("ShaderMaterial_nf1fb")
+size = Vector2(100, 100)
+
+[sub_resource type="SphereMesh" id="SphereMesh_48drh"]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_aa0d5"]
+radius = 2.0
+height = 4.0
 
 [node name="Space3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
+environment = SubResource("Environment_4g6ja")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.47152)
+mesh = SubResource("QuadMesh_mjgiq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.289, -1.81, -8.328)
+mesh = SubResource("SphereMesh_48drh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.065, 5.71, -15.85)
+mesh = SubResource("SphereMesh_aa0d5")
+
+[node name="Objects" type="Node3D" parent="."]
+script = ExtResource("2_q3kx3")
+
+[node name="GodotLogo" parent="Objects" instance=ExtResource("2_ckb7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7, -1.87, -3.824)
+transparent = false
+
+[node name="GameEngineLogo" parent="Objects" instance=ExtResource("3_g55l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
