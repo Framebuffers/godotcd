@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1g43g3vh8r7n"]
+[gd_scene load_steps=11 format=3 uid="uid://b1g43g3vh8r7n"]
 
 [ext_resource type="Shader" path="res://assets/shader/psx_camera_shader.gdshader" id="1_urwow"]
 [ext_resource type="PackedScene" uid="uid://berwqny7rh176" path="res://scn/godot_logo.tscn" id="2_ckb7i"]
-[ext_resource type="Script" path="res://src/Objects.cs" id="2_q3kx3"]
 [ext_resource type="PackedScene" uid="uid://botmxrxu1y2q5" path="res://scn/game_engine_logo.tscn" id="3_g55l1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_if261"]
@@ -68,7 +67,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.065, 5.71, -15.85)
 mesh = SubResource("SphereMesh_aa0d5")
 
 [node name="Objects" type="Node3D" parent="."]
-script = ExtResource("2_q3kx3")
 
 [node name="GodotLogo" parent="Objects" instance=ExtResource("2_ckb7i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7, -1.87, -3.824)
