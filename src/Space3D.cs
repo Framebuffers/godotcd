@@ -1,7 +1,6 @@
 namespace Bios;
 
 using Godot;
-using System;
 
 // Manages base behaviour of logos.
 public partial class Space3D : Node3D
@@ -14,13 +13,13 @@ public partial class Space3D : Node3D
   {
     _companyLogo = GetNode<Sprite3D>("Objects/GodotLogo");
     _textLogo = GetNode<Sprite3D>("Objects/GameEngineLogo");
-    //Movement.CurvedPathTranslate(_companyLogo, 5.0f, 3.0f);
-    _companyLogo.CurvedPathTranslate(0.01f, 30.0f);
+    _companyLogo.CurvedPathTranslate(10.0f, 3.0f);
   }
 
   // Called every frame. 'delta' is the elapsed time since the previous frame.
   public override void _Process(double delta)
   {
+    //_companyLogo.CurvedPathTranslate(10.0f, 30.0f);
 
   }
 

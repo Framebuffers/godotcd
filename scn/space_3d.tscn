@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1g43g3vh8r7n"]
+[gd_scene load_steps=12 format=3 uid="uid://b1g43g3vh8r7n"]
 
+[ext_resource type="Script" path="res://src/Space3D.cs" id="1_sxiwb"]
 [ext_resource type="Shader" path="res://assets/shader/psx_camera_shader.gdshader" id="1_urwow"]
 [ext_resource type="PackedScene" uid="uid://berwqny7rh176" path="res://scn/godot_logo.tscn" id="2_ckb7i"]
 [ext_resource type="PackedScene" uid="uid://botmxrxu1y2q5" path="res://scn/game_engine_logo.tscn" id="3_g55l1"]
@@ -46,6 +47,7 @@ radius = 2.0
 height = 4.0
 
 [node name="Space3D" type="Node3D"]
+script = ExtResource("1_sxiwb")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 environment = SubResource("Environment_4g6ja")
